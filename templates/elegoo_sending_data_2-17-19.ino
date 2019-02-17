@@ -15,7 +15,7 @@
  ****************************************************/
 
 #include <Wire.h>
-#include "Adafruit_TMP006.h"
+//#include "Adafruit_TMP006.h"
 
 // Connect VCC to +3V (its a quieter supply than the 5V supply on an Arduino
 // Gnd -> Gnd
@@ -25,7 +25,7 @@
 // otherwise, on the Uno, this is A4 on the Mega it is 20 and on the Leonardo/Micro digital 2
 
 //Adafruit_TMP006 tmp006;
-Adafruit_TMP006 tmp006(0x41);  // start with a diferent i2c address!
+//Adafruit_TMP006 tmp006(0x41);  // start with a diferent i2c address!
 
 
 //float data[3] = {2.4,1.2,0.6};
@@ -34,8 +34,8 @@ String data = "1,2,3?";
 
 void setup() { 
   Serial.begin(9600);
-  Serial1.begin(9600);
-  Serial.println("Adafruit TMP006 example");
+  //Serial1.begin(9600);
+  //Serial.println("Adafruit TMP006 example");
 
   // you can also use tmp006.begin(TMP006_CFG_1SAMPLE) or 2SAMPLE/4SAMPLE/8SAMPLE to have
   // lower precision, higher rate sampling. default is TMP006_CFG_16SAMPLE which takes
@@ -45,7 +45,7 @@ void setup() {
   //  while (1);
   //}
 
-  Serial.println("Send s to enter sleep mode, or w to wake up.  Measurements are not updated while asleep!");
+  //Serial.println("Send s to enter sleep mode, or w to wake up.  Measurements are not updated while asleep!");
 }
 
 void loop() {
@@ -72,9 +72,9 @@ void loop() {
   //Serial.print("Die Temperature: "); Serial.print(diet); Serial.println("*C");
 
   for(int i=0; i<data.length(); i++){
-    Serial1.write(data[i]);
+    Serial.write(data[i]);
   }
   //Serial1.write(data); 
-  Serial.println("H");
-  delay(1000); // 4 seconds per reading for 16 samples per reading
+  //Serial.println("H");
+  delay(1300); // 4 seconds per reading for 16 samples per reading
 }
